@@ -30,3 +30,14 @@ hist(murder_rate)
 murders$state[which.max(murder_rate)]
 murders <-  murders %>% mutate(rate=total*1000000/population, rank=rank(-rate))
 boxplot(rate ~ region, data = murders)
+m <- 25
+s <-  vector(length =m)
+s_n <-  function(m){
+  sum(1:m)
+}
+for(i in 1:m){
+    s[i] <- s_n(i)
+}
+n <- 1:m
+plot(n,s)
+lines(n,n*(n+1)/2)
